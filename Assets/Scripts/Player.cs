@@ -10,9 +10,9 @@ public class Player : MonoBehaviour
   int currARM;
   [Tooltip("This is an int for the max amount of armor")]
   public int maxARM = 50;
-  Player instance;
+  public static Player instance;
 
-  private void Start()
+  private void Awake()
   {
     if (instance == null)
     {
@@ -22,5 +22,7 @@ public class Player : MonoBehaviour
     {
       Destroy(this);
     }
+
+    DontDestroyOnLoad(this.gameObject);
   }
 }

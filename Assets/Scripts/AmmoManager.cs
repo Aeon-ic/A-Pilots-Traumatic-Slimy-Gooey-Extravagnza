@@ -9,11 +9,9 @@ public class AmmoManager : MonoBehaviour
   public string[] ammoTypes;
   [Tooltip("This is an array of ints for all the different values for the starting ammo (Must be the same length as ammoTypes)")]
   public int[] startingAmmo;
-  AmmoManager instance;
+  public static AmmoManager instance;
 
-  
-  // Start is called before the first frame update
-  void Start()
+  private void Awake()
   {
     if (instance == null)
     {
@@ -24,24 +22,30 @@ public class AmmoManager : MonoBehaviour
       Destroy(this);
     }
 
-    for(int i = 0; i < ammoTypes.Length; i++)
+    DontDestroyOnLoad(this.gameObject);
+  }
+
+  // Start is called before the first frame update
+  void Start()
+  {
+    for (int i = 0; i < ammoTypes.Length; i++)
     {
-      Debug.Log(ammoTypes[i]);
-      Debug.Log(startingAmmo[i]);
       ammoManager.Add(ammoTypes[i], startingAmmo[i]);
     }
   }
 
-  int FillClip(string gunType, int clipSize)
+  public int FillClip(string gunType, int ammoRequested)
   {
-    if (ammoManager[gunType] >= clipSize)
+    if (ammoManager[gunType] >= ammoRequested)
     {
-      ammoManager[gunType] -= clipSize;
-      return clipSize;
+      ammoManager[gunType] -= ammoRequested;
+      Debug.Log(gunType + " bullets left: " + ammoManager[gunType]);
+      return ammoRequested;
     }
     else
     {
       ammoManager[gunType] -= ammoManager[gunType];
+      Debug.Log(gunType + " bullets left: " + ammoManager[gunType]);
       return ammoManager[gunType];
     }
   }
