@@ -9,6 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9164251269637518607}
+  - component: {fileID: 579322818515833267}
+  - component: {fileID: 167787171954899803}
+  - component: {fileID: 2581599349872497055}
+  - component: {fileID: 3927683083691454731}
   m_Layer: 0
   m_Name: Shotgun Ammo
   m_TagString: Untagged
@@ -55,6 +59,61 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &579322818515833267
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4258654284355310835}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6, y: 0.5, z: 0.9}
+  m_Center: {x: 0.25, y: 0.2, z: -0.4}
+--- !u!114 &167787171954899803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4258654284355310835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0da2119ac68b5c84f8821dba5759d6f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upwardsDistance: 0.125
+  downwardsDistance: 0.125
+  movementSpeed: 0.125
+--- !u!114 &2581599349872497055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4258654284355310835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9164fb1e617fb4697c7fa74f40fbab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 30
+--- !u!114 &3927683083691454731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4258654284355310835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8652b6de4e5358e4b930d8973f0415b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammoRestored: 2
+  ammoType: 12Gauge
 --- !u!1 &7460355712870328141
 GameObject:
   m_ObjectHideFlags: 0

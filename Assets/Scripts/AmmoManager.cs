@@ -1,14 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AmmoManager : MonoBehaviour
 {
-  public Dictionary<string, int> ammoManager = new Dictionary<string, int>();
   [Tooltip("This is an array of string for all the different types of ammo (Must be the same length as startingAmmo)")]
   public string[] ammoTypes;
   [Tooltip("This is an array of ints for all the different values for the starting ammo (Must be the same length as ammoTypes)")]
   public int[] startingAmmo;
+  [Tooltip("This is an array that limits how many bullets of each type a player can hold (Must be the same length as ammoTypes)")]
+  public int[] maxAmmo;
+  [Tooltip("This is an array containing how many bullets are left of each type")]
+  public int[] currentAmmo;
   public static AmmoManager instance;
 
   private void Awake()
@@ -28,25 +32,41 @@ public class AmmoManager : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-    for (int i = 0; i < ammoTypes.Length; i++)
+    currentAmmo = new int[ammoTypes.Length];
+    for (int i = 0; i < startingAmmo.Length; i++)
     {
-      ammoManager.Add(ammoTypes[i], startingAmmo[i]);
+      startingAmmo.CopyTo(currentAmmo, i);
     }
   }
 
   public int FillClip(string gunType, int ammoRequested)
   {
-    if (ammoManager[gunType] >= ammoRequested)
+    //Check if the current ammo list has enough ammo to fill request
+    int ammoIndex = Array.IndexOf(ammoTypes, gunType);
+    if (currentAmmo[ammoIndex] >= ammoRequested)
     {
-      ammoManager[gunType] -= ammoRequested;
-      Debug.Log(gunType + " bullets left: " + ammoManager[gunType]);
+      //Return the ammo requested
+      currentAmmo[ammoIndex] -= ammoRequested;
       return ammoRequested;
     }
     else
     {
-      ammoManager[gunType] -= ammoManager[gunType];
-      Debug.Log(gunType + " bullets left: " + ammoManager[gunType]);
-      return ammoManager[gunType];
+      int ammoToReturn = currentAmmo[ammoIndex];
+      currentAmmo[ammoIndex] -= currentAmmo[ammoIndex];
+      return ammoToReturn;
+    }
+  }
+
+  public void AddAmmo(string ammoType, int ammoAdded)
+  {
+    int ammoIndex = Array.IndexOf(ammoTypes, ammoType);
+    if (currentAmmo[ammoIndex] + ammoAdded > maxAmmo[ammoIndex])
+    {
+      currentAmmo[ammoIndex] = maxAmmo[ammoIndex];
+    }
+    else
+    {
+      currentAmmo[ammoIndex] += ammoAdded;
     }
   }
 }

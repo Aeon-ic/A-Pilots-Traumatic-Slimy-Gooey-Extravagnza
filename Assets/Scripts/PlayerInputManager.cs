@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerInputManager : MonoBehaviour
 {
@@ -11,16 +9,22 @@ public class PlayerInputManager : MonoBehaviour
   private void Update()
   {
     //Check if weapon has changed
-    currentWeapon = this.gameObject.GetComponentInChildren<IFireable>();
+    currentWeapon = gameObject.GetComponentInChildren<IFireable>();
 
     if (Input.GetKeyDown(shootKey))
     {
-      currentWeapon.Shoot();
+      if (currentWeapon != null)
+      {
+        currentWeapon.Shoot();
+      }
     }
 
     if (Input.GetKeyDown(reloadKey))
     {
-      currentWeapon.Reload();
+      if (currentWeapon != null)
+      {
+        currentWeapon.Reload();
+      }
     }
   }
 }

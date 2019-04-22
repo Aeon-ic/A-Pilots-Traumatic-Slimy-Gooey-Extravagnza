@@ -52,13 +52,31 @@ public class Player : MonoBehaviour
 
   public void TakeDamage(int damage)
   {
-    if (currHP - damage <= 0)
+    //Take into account armor on the incoming damage
+    if (currARM > 0)
     {
-      Die();
+      if (currARM - damage > 0)
+      {
+        currARM -= damage;
+        damage = 0;
+      }
+      else
+      {
+        damage -= currARM;
+        currARM = 0;
+      }
     }
-    else
+
+    //Check for any damage left after armor has done it's job
+    if (damage > 0)
     {
       currHP -= damage;
+    }
+
+    //Check if player has died
+    if (currHP <= 0)
+    {
+      Die();
     }
   }
 
