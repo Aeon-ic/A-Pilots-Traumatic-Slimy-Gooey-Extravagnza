@@ -25,4 +25,45 @@ public class Player : MonoBehaviour
 
     DontDestroyOnLoad(this.gameObject);
   }
+
+  public void AddHealth(int healthAdded)
+  {
+    if (currHP + healthAdded > maxHP)
+    {
+      currHP = maxHP;
+    }
+    else
+    {
+      currHP += healthAdded;
+    }
+  }
+
+  public void AddArmor(int armorAdded)
+  {
+    if (currARM + armorAdded > maxARM)
+    {
+      currARM = maxARM;
+    }
+    else
+    {
+      currARM += armorAdded;
+    }
+  }
+
+  public void TakeDamage(int damage)
+  {
+    if (currHP - damage <= 0)
+    {
+      Die();
+    }
+    else
+    {
+      currHP -= damage;
+    }
+  }
+
+  void Die()
+  {
+
+  }
 }

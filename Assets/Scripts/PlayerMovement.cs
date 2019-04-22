@@ -62,9 +62,15 @@ public class PlayerMovement : MonoBehaviour
     Vector3 euler = this.gameObject.transform.localEulerAngles;
 
     //Modify saved euler angles by mouse input
-    euler += new Vector3(-Input.GetAxisRaw("Mouse Y"), Input.GetAxisRaw("Mouse X"), 0);
+    euler += new Vector3(0, Input.GetAxisRaw("Mouse X"), 0);
 
     //Set rotation to euler + mouse input
     this.gameObject.transform.localEulerAngles = euler;
+
+    //Set Y rotation based on camera
+    Vector3 cameraEuler = Camera.main.transform.localEulerAngles;
+    cameraEuler += new Vector3(-Input.GetAxisRaw("Mouse Y"), 0, 0);
+    Mathf.Clamp(cameraEuler.x, -90f, 90f);
+    Camera.main.transform.localEulerAngles = cameraEuler;
   }
 }
