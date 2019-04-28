@@ -33,8 +33,7 @@ public class FireablePistol : MonoBehaviour, IFireable
       //If it does, subtract the bullet shot, and Raycast for the bullet travel
       ammoLoaded -= 1;
       //Check if it hit
-      Debug.Log(gameObject.transform.up);
-      if (Physics.Raycast(gameObject.transform.position, gameObject.transform.up, out hit, bulletDistance))
+      if (Physics.Raycast(gameObject.transform.position, -gameObject.transform.forward, out hit, bulletDistance))
       {
         //Display the bullet tracer
         StartCoroutine(DrawBullet());
@@ -65,7 +64,7 @@ public class FireablePistol : MonoBehaviour, IFireable
     {
       //If it didn't, draw a line out into forward space (relative up from the gun) at BulletDistance
       bulletRender.SetPosition(0, gameObject.transform.position);
-      bulletRender.SetPosition(1, transform.TransformPoint(Vector3.up * bulletDistance));
+      bulletRender.SetPosition(1, transform.TransformPoint(-Vector3.forward * bulletDistance));
     }
     else
     {

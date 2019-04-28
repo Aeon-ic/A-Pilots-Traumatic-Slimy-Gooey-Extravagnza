@@ -35,7 +35,7 @@ public class AmmoManager : MonoBehaviour
     currentAmmo = new int[ammoTypes.Length];
     for (int i = 0; i < startingAmmo.Length; i++)
     {
-      startingAmmo.CopyTo(currentAmmo, i);
+      currentAmmo[i] = startingAmmo[i];
     }
   }
 

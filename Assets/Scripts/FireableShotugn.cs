@@ -40,10 +40,10 @@ public class FireableShotugn : MonoBehaviour, IFireable
       //Check if it hit
       for (int i = 0; i < pelletsPerBullet; i++)
       {
-        pelletList[i] = gameObject.transform.forward;
+        pelletList[i] = -gameObject.transform.forward;
         Debug.Log(gameObject.transform.position);
         Debug.Log("Pellet: " + i +"\tPellet direction" + pelletList[i]);
-        if (Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hit, bulletDistance))
+        if (Physics.Raycast(gameObject.transform.position, -gameObject.transform.forward, out hit, bulletDistance))
         {
           Debug.Log("Pellet hit: " + hit.collider);
 
