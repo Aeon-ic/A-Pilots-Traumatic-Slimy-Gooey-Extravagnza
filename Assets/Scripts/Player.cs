@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-  int currHP;
   [Tooltip("This is an int for the max player HP")]
   public int maxHP = 100;
-  int currARM;
   [Tooltip("This is an int for the max amount of armor")]
   public int maxARM = 50;
+  [Tooltip("This is an int for the starting hp")]
+  public int startingHP = 100;
+  [Tooltip("This is an int for the starting armor")]
+  public int startingARM = 50;
+  [Tooltip("This is an int containing the current hp")]
+  public int currHP;
+  [Tooltip("This is an int containing the current armor")]
+  public int currARM;
   public static Player instance;
+  public GameObject player;
 
   private void Awake()
   {
+    //Singleton code
     if (instance == null)
     {
       instance = this;
@@ -24,6 +32,13 @@ public class Player : MonoBehaviour
     }
 
     DontDestroyOnLoad(this.gameObject);
+
+    //Setup player reference
+    player = GameObject.FindGameObjectWithTag("Player");
+
+    //Setup current hp and armor
+    currHP = startingHP;
+    currARM = startingARM;
   }
 
   public void AddHealth(int healthAdded)
@@ -82,6 +97,7 @@ public class Player : MonoBehaviour
 
   void Die()
   {
-
+    Debug.Log("Dead");
+    Time.timeScale = 0;
   }
 }
