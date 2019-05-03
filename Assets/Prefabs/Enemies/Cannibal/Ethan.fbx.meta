@@ -177,7 +177,12 @@ ModelImporter:
     9500000: //RootNode
     13700000: EthanBody
     13700002: EthanGlasses
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: EthanWhite
+    second: {fileID: 2100000, guid: 793bafe8634b2c24dbb9bcc9e85906ce, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
