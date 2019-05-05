@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -13,11 +14,21 @@ public class Player : MonoBehaviour
   [Tooltip("This is an int for the starting armor")]
   public int startingARM = 50;
   [Tooltip("This is an int containing the current hp")]
+  [ReadOnly]
   public int currHP;
   [Tooltip("This is an int containing the current armor")]
+  [ReadOnly]
   public int currARM;
   public static Player instance;
+  [Tooltip("This is the reference to the current player gameObject in the scene")]
+  [ReadOnly]
   public GameObject player;
+  [Tooltip("This is the reference to the death canvas in the scene")]
+  [ReadOnly]
+  public Canvas deathCanvas;
+  [Tooltip("This is the refernce to the health, armor, and ammo canvas on the player")]
+  [ReadOnly]
+  public Canvas healthCanvas;
 
   private void Awake()
   {
@@ -28,13 +39,30 @@ public class Player : MonoBehaviour
     }
     else
     {
-      Destroy(this);
+      Destroy(this.gameObject);
     }
 
     DontDestroyOnLoad(this.gameObject);
 
     //Setup player reference
     player = GameObject.FindGameObjectWithTag("Player");
+
+    //Setup death canvas reference
+    var canvases = FindObjectsOfType(typeof(Canvas)) as Canvas[];
+    foreach(Canvas currCanvas in canvases)
+    {
+      if (currCanvas.tag == "DeathCanvas")
+      {
+        deathCanvas = currCanvas;
+      }
+      if (currCanvas.tag == "HealthCanvas")
+      {
+        healthCanvas = currCanvas;
+      }
+    }
+
+    //Turn off the deathCanvas until dead
+    deathCanvas.enabled = false;
 
     //Setup current hp and armor
     currHP = startingHP;
@@ -95,9 +123,23 @@ public class Player : MonoBehaviour
     }
   }
 
+  //This would be much neater with a delegate, but I need to be fast with all these additions
   void Die()
   {
-    Debug.Log("Dead");
+    Debug.Log("Player Dead");
+
+    //Set the canvases to the proper state for death
+    deathCanvas.enabled = true;
+    healthCanvas.enabled = false;
+
+    //Change back the cursor lock state for menuing
+    Cursor.lockState = CursorLockMode.None;
+    Cursor.visible = true;
+
+    //Disable player movement
+    player.GetComponent<PlayerMovement>().enabled = false;
+
+    //Pause the game
     Time.timeScale = 0;
   }
 }

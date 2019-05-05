@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class FireableShotugn : MonoBehaviour, IFireable
 {
   [Tooltip("This is a float that defines the amount of damage the pellet does on hit")]
@@ -25,6 +26,9 @@ public class FireableShotugn : MonoBehaviour, IFireable
   LineRenderer[] bulletRender;
   [Tooltip("This is a prefab for the bullet renders for each pellet")]
   public GameObject prefab;
+  [Tooltip("This is an audio clip for the shotgun firing sound effect")]
+  public AudioClip shotSound;
+  AudioSource shotgunSource;
 
   private void Awake()
   {
@@ -39,6 +43,9 @@ public class FireableShotugn : MonoBehaviour, IFireable
       bulletRender[i].endWidth = .05f;
       bulletRender[i].shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
     }
+
+    //Get the audio source on the current object
+    shotgunSource = this.gameObject.GetComponent<AudioSource>();
   }
 
   public void Shoot()
@@ -49,6 +56,14 @@ public class FireableShotugn : MonoBehaviour, IFireable
       //If it does, subtract the bullet shot, and Raycast for the bullet travel
       ammoLoaded -= 1;
       Vector3[] pelletList = new Vector3[pelletsPerBullet];
+
+      //Play Sound effect
+      if (shotgunSource.isPlaying)
+      {
+        shotgunSource.Stop();
+      }
+      shotgunSource.PlayOneShot(shotSound);
+
       //Check if it hit
       for (int i = 0; i < pelletsPerBullet; i++)
       {
@@ -81,10 +96,9 @@ public class FireableShotugn : MonoBehaviour, IFireable
     //Check if the bullet collided with anything
     if (hit.collider == null)
     {
-      //If it didn't, draw a line out into forward space (relative up from the gun) at BulletDistance
+      //If it didn't, draw a line out into forward space at BulletDistance
       bulletRender.SetPosition(0, gameObject.transform.position);
-      Ray ray = new Ray(gameObject.transform.parent.transform.position, pelletTraj);
-      bulletRender.SetPosition(1, transform.TransformPoint(ray.direction * bulletDistance));
+      bulletRender.SetPosition(1, this.gameObject.transform.position + pelletTraj * bulletDistance);
     }
     else
     {
