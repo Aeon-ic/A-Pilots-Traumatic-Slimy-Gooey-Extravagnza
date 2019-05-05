@@ -1,14 +1,13 @@
 fileFormatVersion: 2
-guid: ebc45ba3ff076884e92c0f152cc3b98e
+guid: c301af0cb8f2b0147b416de87f19a9e8
 labels:
 - Environment
 - Plant
 - Bush
 - Foliage
 - Nature
-NativeFormatImporter:
+PrefabImporter:
   externalObjects: {}
-  mainObjectFileID: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

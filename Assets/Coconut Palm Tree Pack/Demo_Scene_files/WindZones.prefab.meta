@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: a5180b78e14595545b205f7fe0e69f43
+guid: 1d0a4c98c7fee16499d03690e54c58f4
 labels:
 - CoconutPalmTreePack
-timeCreated: 1428527275
-licenseType: Store
-NativeFormatImporter:
+PrefabImporter:
+  externalObjects: {}
   userData: 
   assetBundleName: coconut_palm_tree
   assetBundleVariant: 
