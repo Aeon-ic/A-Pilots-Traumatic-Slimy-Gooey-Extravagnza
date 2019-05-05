@@ -2,6 +2,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
+[RequireComponent(typeof(AudioSource))]
 public class FireablePistol : MonoBehaviour, IFireable
 {
   [Tooltip("This is a float that defines the amount of damage the gun does on hit")]
@@ -18,11 +19,17 @@ public class FireablePistol : MonoBehaviour, IFireable
   public string ammoType = "9mm";
   RaycastHit hit;
   LineRenderer bulletRender;
+  AudioSource pistolSource;
+  [Tooltip("This is an audio clip that plays when the pistol is shot")]
+  public AudioClip shotSound;
 
   private void Awake()
   {
     //Grab the LineRenderer component for the bullet tracers
     bulletRender = gameObject.GetComponent<LineRenderer>();
+
+    //Set pistolSource to the Audio Source on the current gameObject
+    pistolSource = this.gameObject.GetComponent<AudioSource>();
   }
 
   public void Shoot()
@@ -38,6 +45,13 @@ public class FireablePistol : MonoBehaviour, IFireable
         //Display the bullet tracer
         StartCoroutine(DrawBullet());
         Debug.Log("Bullet hit: " + hit.collider);
+
+        //Play Sound effect
+        if (pistolSource.isPlaying)
+        {
+          pistolSource.Stop();
+        }
+        pistolSource.PlayOneShot(shotSound);
 
         //Check what the bullet hit
         if (hit.collider.CompareTag("Enemy"))

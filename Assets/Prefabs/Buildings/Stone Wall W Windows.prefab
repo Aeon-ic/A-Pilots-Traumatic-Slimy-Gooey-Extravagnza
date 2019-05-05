@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4159402278790063296}
+  - component: {fileID: 8548433642841037193}
   m_Layer: 0
-  m_Name: Stone Wall
+  m_Name: Stone Wall W Windows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,6 +38,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8548433642841037193
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2366030747211608444}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 11, y: 10.7, z: 1.5}
+  m_Center: {x: 1.5, y: 5.3, z: -0.75}
 --- !u!1 &5264637415568590428
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,7 +846,7 @@ MeshCollider:
   m_GameObject: {fileID: 5264637415568590428}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -1140,7 +1154,7 @@ MeshCollider:
   m_GameObject: {fileID: 5264637416189079421}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -1940,7 +1954,7 @@ MeshCollider:
   m_GameObject: {fileID: 5264637416391265089}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -2740,7 +2754,7 @@ MeshCollider:
   m_GameObject: {fileID: 5264637416575590355}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -3048,7 +3062,7 @@ MeshCollider:
   m_GameObject: {fileID: 5264637416614383976}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -3848,7 +3862,7 @@ MeshCollider:
   m_GameObject: {fileID: 5264637416681481671}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -4648,7 +4662,7 @@ MeshCollider:
   m_GameObject: {fileID: 5264637417041651247}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
