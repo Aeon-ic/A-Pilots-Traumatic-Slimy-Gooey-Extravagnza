@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -29,6 +30,9 @@ public class Player : MonoBehaviour
   [Tooltip("This is the refernce to the health, armor, and ammo canvas on the player")]
   [ReadOnly]
   public Canvas healthCanvas;
+  [Tooltip("This is a bool that shows if the player has the keycard")]
+  [ReadOnly]
+  public bool hasKeycard;
 
   private void Awake()
   {
@@ -47,7 +51,7 @@ public class Player : MonoBehaviour
     //Setup player reference
     player = GameObject.FindGameObjectWithTag("Player");
 
-    //Setup death canvas reference
+    //Setup death and health canvas reference
     var canvases = FindObjectsOfType(typeof(Canvas)) as Canvas[];
     foreach(Canvas currCanvas in canvases)
     {
@@ -67,6 +71,30 @@ public class Player : MonoBehaviour
     //Setup current hp and armor
     currHP = startingHP;
     currARM = startingARM;
+  }
+
+  //Method to be called when transferring scenes to reset references
+  private void OnLevelWasLoaded(int level)
+  {
+    //Setup player reference
+    player = GameObject.FindGameObjectWithTag("Player");
+
+    //Setup death and health canvas reference
+    var canvases = FindObjectsOfType(typeof(Canvas)) as Canvas[];
+    foreach (Canvas currCanvas in canvases)
+    {
+      if (currCanvas.tag == "DeathCanvas")
+      {
+        deathCanvas = currCanvas;
+      }
+      if (currCanvas.tag == "HealthCanvas")
+      {
+        healthCanvas = currCanvas;
+      }
+    }
+
+    //Turn off the deathCanvas until dead
+    deathCanvas.enabled = false;
   }
 
   public void AddHealth(int healthAdded)
