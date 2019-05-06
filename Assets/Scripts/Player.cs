@@ -73,30 +73,6 @@ public class Player : MonoBehaviour
     currARM = startingARM;
   }
 
-  //Method to be called when transferring scenes to reset references
-  private void OnLevelWasLoaded(int level)
-  {
-    //Setup player reference
-    player = GameObject.FindGameObjectWithTag("Player");
-
-    //Setup death and health canvas reference
-    var canvases = FindObjectsOfType(typeof(Canvas)) as Canvas[];
-    foreach (Canvas currCanvas in canvases)
-    {
-      if (currCanvas.tag == "DeathCanvas")
-      {
-        deathCanvas = currCanvas;
-      }
-      if (currCanvas.tag == "HealthCanvas")
-      {
-        healthCanvas = currCanvas;
-      }
-    }
-
-    //Turn off the deathCanvas until dead
-    deathCanvas.enabled = false;
-  }
-
   public void AddHealth(int healthAdded)
   {
     if (currHP + healthAdded > maxHP)
@@ -166,8 +142,5 @@ public class Player : MonoBehaviour
 
     //Disable player movement
     player.GetComponent<PlayerMovement>().enabled = false;
-
-    //Pause the game
-    Time.timeScale = 0;
   }
 }

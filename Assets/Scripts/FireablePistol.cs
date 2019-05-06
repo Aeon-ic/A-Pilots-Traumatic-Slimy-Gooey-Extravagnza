@@ -56,7 +56,8 @@ public class FireablePistol : MonoBehaviour, IFireable
         //Check what the bullet hit
         if (hit.collider.CompareTag("Enemy"))
         {
-          //Add in damage later
+          //Call TakeDamage on enemy
+          hit.collider.gameObject.GetComponent<IEnemyHealth>().TakeDamage(damage);
         }
         else
         {
