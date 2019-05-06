@@ -5,7 +5,7 @@ using UnityEngine;
 public class FireableShotugn : MonoBehaviour, IFireable
 {
   [Tooltip("This is a float that defines the amount of damage the pellet does on hit")]
-  public float damage = 10f;
+  public float damage = 10;
   [Tooltip("This is an int that defines how many bullets are currently in the magazine")]
   public int ammoLoaded = 2;
   [Tooltip("This is an int that defines how many bullets the gun can hold in the magazine")]
@@ -77,7 +77,8 @@ public class FireableShotugn : MonoBehaviour, IFireable
           //Check what the bullet hit
           if (hit.collider.CompareTag("Enemy"))
           {
-            //Add in damage later
+            //Call TakeDamage on the enemy
+            hit.collider.gameObject.GetComponent<IEnemyHealth>().TakeDamage(damage);
           }
           else
           {
