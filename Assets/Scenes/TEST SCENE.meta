@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Character.meta
-guid: 4ff0aaac6b2efae4a886091e08d7aff0
-=======
-guid: bfe5ea3c6400ddd4f866e2c3800710c2
->>>>>>> e4d7398b68ed9fdee96ab96d19762be986cf51d7:Assets/Scenes/TEST SCENE.meta
+guid: 5ec0274547376754ea18e44dc66d2679
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
