@@ -10508,7 +10508,7 @@ MonoBehaviour:
   ammoType: 12Gauge
   bulletTracer: {fileID: 2100000, guid: c8d4f46a4bd24a44abd6c21941a3dcc7, type: 2}
   prefab: {fileID: 345861454338987914, guid: 75e600603fa5fb4429b785c99b82afd3, type: 3}
-  shotSound: {fileID: 0}
+  shotSound: {fileID: 8300000, guid: 40f72fade634eeb4f9e9bdd15d798223, type: 3}
 --- !u!82 &6061695348409045436
 AudioSource:
   m_ObjectHideFlags: 0

@@ -155,7 +155,7 @@ MonoBehaviour:
   bulletDistance: 75
   drawBulletTime: 0.05
   ammoType: 9mm
-  shotSound: {fileID: 0}
+  shotSound: {fileID: 8300000, guid: 82cf901f21659494e903cdd0eb31df5c, type: 3}
 --- !u!82 &1097812886107086886
 AudioSource:
   m_ObjectHideFlags: 0
