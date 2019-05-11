@@ -48,12 +48,31 @@ public class Player : MonoBehaviour
 
     DontDestroyOnLoad(this.gameObject);
 
+    //Setup references on start
+    SetupReferences();
+
+    //Setup current hp and armor
+    currHP = startingHP;
+    currARM = startingARM;
+  }
+
+  private void Update()
+  {
+    //Set canvas references if they turn null
+    if (deathCanvas == null || healthCanvas == null || player == null)
+    {
+      SetupReferences();
+    }
+  }
+
+  public void SetupReferences()
+  {
     //Setup player reference
     player = GameObject.FindGameObjectWithTag("Player");
 
     //Setup death and health canvas reference
     var canvases = FindObjectsOfType(typeof(Canvas)) as Canvas[];
-    foreach(Canvas currCanvas in canvases)
+    foreach (Canvas currCanvas in canvases)
     {
       if (currCanvas.tag == "DeathCanvas")
       {
@@ -67,10 +86,6 @@ public class Player : MonoBehaviour
 
     //Turn off the deathCanvas until dead
     deathCanvas.enabled = false;
-
-    //Setup current hp and armor
-    currHP = startingHP;
-    currARM = startingARM;
   }
 
   public void AddHealth(int healthAdded)
@@ -142,5 +157,9 @@ public class Player : MonoBehaviour
 
     //Disable player movement
     player.GetComponent<PlayerMovement>().enabled = false;
+
+    //Reset health on player in case they restart
+    currHP = startingHP;
+    currARM = startingARM;
   }
 }

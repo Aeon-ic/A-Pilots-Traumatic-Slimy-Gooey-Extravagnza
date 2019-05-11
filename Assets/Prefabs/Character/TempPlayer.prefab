@@ -66,10 +66,10 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: d718f6e7573728e4bbf0c522f85d24a2, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -451,10 +451,10 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: f2d7949eb3dfe9e49a2ded523d42d7f1, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -864,7 +864,7 @@ MonoBehaviour:
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -960,6 +960,7 @@ GameObject:
   - component: {fileID: 3459245859259802450}
   - component: {fileID: 5492245169878388772}
   - component: {fileID: 4388461312678520813}
+  - component: {fileID: 9004293578625979654}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: HealthCanvas
@@ -1055,6 +1056,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &9004293578625979654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8921611862878334328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0d5e2c1f478207409059f54a7b74f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 5198007140959055726}
+  armorBar: {fileID: 7284100667499094855}
+  keyAcquired: {fileID: 3471098038332221065}
 --- !u!1001 &4414003175123564985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2652,6 +2668,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5695278700286636854, guid: 7074c405d13ab5a4fb49eb094419b350,
+        type: 3}
+      propertyPath: shotgunUIText
+      value: 
+      objectReference: {fileID: 3682464850199242878}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7074c405d13ab5a4fb49eb094419b350, type: 3}
 --- !u!4 &9023677616791522378 stripped
@@ -3122,6 +3143,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8766136404368944545, guid: 4f14d44082264c64cbcc2675a928fbb9,
+        type: 3}
+      propertyPath: pistolUIText
+      value: 
+      objectReference: {fileID: 5636622054539230984}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f14d44082264c64cbcc2675a928fbb9, type: 3}
 --- !u!4 &660827324644802546 stripped

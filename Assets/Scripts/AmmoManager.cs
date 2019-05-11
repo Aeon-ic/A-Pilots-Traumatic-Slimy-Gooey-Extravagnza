@@ -69,4 +69,9 @@ public class AmmoManager : MonoBehaviour
       currentAmmo[ammoIndex] += ammoAdded;
     }
   }
+
+  public int AmmoLeft(string ammoType)
+  {
+    return currentAmmo[Array.IndexOf(ammoTypes, ammoType)];
+  }
 }

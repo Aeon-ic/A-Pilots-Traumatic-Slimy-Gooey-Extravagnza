@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(LineRenderer))]
 [RequireComponent(typeof(AudioSource))]
@@ -22,6 +23,8 @@ public class FireablePistol : MonoBehaviour, IFireable
   AudioSource pistolSource;
   [Tooltip("This is an audio clip that plays when the pistol is shot")]
   public AudioClip shotSound;
+  [Tooltip("This is the text that is updated when the pistol is shot")]
+  public Text pistolUIText;
 
   private void Awake()
   {
@@ -39,6 +42,7 @@ public class FireablePistol : MonoBehaviour, IFireable
     {
       //If it does, subtract the bullet shot, and Raycast for the bullet travel
       ammoLoaded -= 1;
+
       //Check if it hit
       if (Physics.Raycast(gameObject.transform.position, -gameObject.transform.forward, out hit, bulletDistance))
       {
@@ -96,5 +100,11 @@ public class FireablePistol : MonoBehaviour, IFireable
   public void Reload()
   {
     ammoLoaded += AmmoManager.instance.FillClip(ammoType, clipSize - ammoLoaded);
+  }
+
+  public void Update()
+  {
+    //Update UI
+    pistolUIText.text = $"{ammoLoaded}/{AmmoManager.instance.AmmoLeft(ammoType)}";
   }
 }

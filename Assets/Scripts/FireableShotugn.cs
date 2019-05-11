@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(AudioSource))]
 public class FireableShotugn : MonoBehaviour, IFireable
@@ -29,6 +30,8 @@ public class FireableShotugn : MonoBehaviour, IFireable
   [Tooltip("This is an audio clip for the shotgun firing sound effect")]
   public AudioClip shotSound;
   AudioSource shotgunSource;
+  [Tooltip("This is the text that is updated when the gun is shot")]
+  public Text shotgunUIText;
 
   private void Awake()
   {
@@ -64,12 +67,13 @@ public class FireableShotugn : MonoBehaviour, IFireable
       }
       shotgunSource.PlayOneShot(shotSound);
 
-      //Check if it hit
+      //Loop for each pellet in each shot
       for (int i = 0; i < pelletsPerBullet; i++)
       {
+        //Calculate single pellet spread
         pelletList[i] = -gameObject.transform.forward + (Random.insideUnitSphere * bulletSpread);
-        Debug.Log(gameObject.transform.position);
-        Debug.Log("Pellet: " + i + "\tPellet direction" + pelletList[i]);
+
+        //"Shoot" the bullet
         if (Physics.Raycast(gameObject.transform.position, pelletList[i], out hit, bulletDistance))
         {
           Debug.Log("Pellet hit: " + hit.collider);
@@ -116,5 +120,11 @@ public class FireableShotugn : MonoBehaviour, IFireable
   public void Reload()
   {
     ammoLoaded += AmmoManager.instance.FillClip(ammoType, clipSize - ammoLoaded);
+  }
+
+  public void Update()
+  {
+    //Change UI
+    shotgunUIText.text = $"{ammoLoaded}/{AmmoManager.instance.AmmoLeft(ammoType)}";
   }
 }

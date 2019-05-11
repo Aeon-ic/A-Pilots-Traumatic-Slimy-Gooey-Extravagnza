@@ -13,12 +13,13 @@ public class WinGame : MonoBehaviour
   {
     if (other.gameObject.tag == "Player")
     {
-      if (Player.instance.hasKeycard == true)
-      {
-        victoryCanvas.enabled = true;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-      }
+      //Turn on the victory canvas
+      victoryCanvas.enabled = true;
+      Cursor.lockState = CursorLockMode.None;
+      Cursor.visible = true;
+
+      //Turn off player movement
+      Player.instance.player.gameObject.GetComponent<PlayerMovement>().enabled = false;
     }
   }
 }
