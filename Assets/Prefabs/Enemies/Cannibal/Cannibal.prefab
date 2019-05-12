@@ -123,6 +123,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 50
+  soundEffect: {fileID: 8300000, guid: 3850591027dfb9b479b0b15313e7ee55, type: 3}
+  minSoundEffectTime: 1
+  maxSoundEffectTime: 10
 --- !u!82 &2393247003545033677
 AudioSource:
   m_ObjectHideFlags: 0
@@ -133,7 +136,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3850591027dfb9b479b0b15313e7ee55, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.558
   m_Pitch: 1
