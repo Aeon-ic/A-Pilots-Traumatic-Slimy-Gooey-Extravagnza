@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8652b6de4e5358e4b930d8973f0415b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoRestored: 2
+  ammoRestored: 4
   ammoType: 12Gauge
 --- !u!1 &7460355712870328141
 GameObject:

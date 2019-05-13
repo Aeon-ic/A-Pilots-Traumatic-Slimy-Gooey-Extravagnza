@@ -46,6 +46,6 @@ MonoBehaviour:
   ammoTypes:
   - 9mm
   - 12Gauge
-  startingAmmo: 4600000012000000
+  startingAmmo: 1400000000000000
   maxAmmo: 4600000012000000
   currentAmmo: 
