@@ -2683,6 +2683,16 @@ PrefabInstance:
       propertyPath: ammoLoaded
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5695278700286636854, guid: 7074c405d13ab5a4fb49eb094419b350,
+        type: 3}
+      propertyPath: bulletDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695278700286636854, guid: 7074c405d13ab5a4fb49eb094419b350,
+        type: 3}
+      propertyPath: bulletSpread
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7074c405d13ab5a4fb49eb094419b350, type: 3}
 --- !u!4 &9023677616791522378 stripped
