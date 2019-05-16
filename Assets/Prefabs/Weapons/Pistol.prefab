@@ -156,6 +156,7 @@ MonoBehaviour:
   drawBulletTime: 0.05
   ammoType: 9mm
   shotSound: {fileID: 8300000, guid: 82cf901f21659494e903cdd0eb31df5c, type: 3}
+  pistolUIText: {fileID: 0}
 --- !u!82 &1097812886107086886
 AudioSource:
   m_ObjectHideFlags: 0
@@ -168,7 +169,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.364
   m_Pitch: 1
   Loop: 0
   Mute: 0
