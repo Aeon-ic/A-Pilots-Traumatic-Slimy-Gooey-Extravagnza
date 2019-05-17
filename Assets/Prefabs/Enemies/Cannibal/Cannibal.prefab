@@ -87,7 +87,7 @@ MonoBehaviour:
   meleeDamage: 15
   meleeRange: 1
   meleeCooldown: 1
-  aggroRange: 4
+  aggroRange: 2
 --- !u!195 &1293255845
 NavMeshAgent:
   m_ObjectHideFlags: 0
