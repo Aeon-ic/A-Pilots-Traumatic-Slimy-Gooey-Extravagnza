@@ -49,6 +49,9 @@ public class FireableShotugn : MonoBehaviour, IFireable
 
     //Get the audio source on the current object
     shotgunSource = this.gameObject.GetComponent<AudioSource>();
+
+    //Subscribe UpdateShotgunText to HealthCanvas OnUIUpdate
+    GameObject.Find("HealthCanvas").GetComponent<HealthCanvas>().OnUIUpdate += UpdateShotgunText;
   }
 
   public void Shoot()
@@ -122,7 +125,7 @@ public class FireableShotugn : MonoBehaviour, IFireable
     ammoLoaded += AmmoManager.instance.FillClip(ammoType, clipSize - ammoLoaded);
   }
 
-  public void Update()
+  public void UpdateShotgunText()
   {
     //Change UI
     shotgunUIText.text = $"{ammoLoaded}/{AmmoManager.instance.AmmoLeft(ammoType)}";

@@ -5,6 +5,11 @@ public class PlayerWeaponSwap : MonoBehaviour
   public Transform pistol;
   public Transform shotgun;
 
+  private void Start()
+  {
+    shotgun.gameObject.SetActive(false);
+  }
+
   // Update is called once per frame
   void Update()
   {

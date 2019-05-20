@@ -33,6 +33,9 @@ public class FireablePistol : MonoBehaviour, IFireable
 
     //Set pistolSource to the Audio Source on the current gameObject
     pistolSource = this.gameObject.GetComponent<AudioSource>();
+
+    //Subscribe UpdatePistolText to HealthCanvas OnUIUpdate
+    GameObject.Find("HealthCanvas").GetComponent<HealthCanvas>().OnUIUpdate += UpdatePistolText;
   }
 
   public void Shoot()
@@ -102,7 +105,7 @@ public class FireablePistol : MonoBehaviour, IFireable
     ammoLoaded += AmmoManager.instance.FillClip(ammoType, clipSize - ammoLoaded);
   }
 
-  public void Update()
+  public void UpdatePistolText()
   {
     //Update UI
     pistolUIText.text = $"{ammoLoaded}/{AmmoManager.instance.AmmoLeft(ammoType)}";

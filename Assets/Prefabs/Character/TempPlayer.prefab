@@ -962,7 +962,7 @@ GameObject:
   - component: {fileID: 4388461312678520813}
   - component: {fileID: 9004293578625979654}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: HealthCanvas
   m_TagString: HealthCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1137,31 +1137,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5695278700286636854, guid: 7074c405d13ab5a4fb49eb094419b350,
-        type: 3}
-      propertyPath: shotgunUIText
-      value: 
-      objectReference: {fileID: 3682464850199242878}
-    - target: {fileID: 5695278700286636854, guid: 7074c405d13ab5a4fb49eb094419b350,
-        type: 3}
-      propertyPath: shotSound
-      value: 
-      objectReference: {fileID: 8300000, guid: a7870276bb2bda54f95cc89c2a9706e7, type: 3}
-    - target: {fileID: 5695278700286636854, guid: 7074c405d13ab5a4fb49eb094419b350,
-        type: 3}
-      propertyPath: ammoLoaded
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5695278700286636854, guid: 7074c405d13ab5a4fb49eb094419b350,
-        type: 3}
-      propertyPath: bulletDistance
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5695278700286636854, guid: 7074c405d13ab5a4fb49eb094419b350,
-        type: 3}
-      propertyPath: bulletSpread
-      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4646371744234803793, guid: 7074c405d13ab5a4fb49eb094419b350,
         type: 3}
@@ -2693,6 +2668,31 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5695278700286636854, guid: 7074c405d13ab5a4fb49eb094419b350,
+        type: 3}
+      propertyPath: shotgunUIText
+      value: 
+      objectReference: {fileID: 3682464850199242878}
+    - target: {fileID: 5695278700286636854, guid: 7074c405d13ab5a4fb49eb094419b350,
+        type: 3}
+      propertyPath: shotSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a7870276bb2bda54f95cc89c2a9706e7, type: 3}
+    - target: {fileID: 5695278700286636854, guid: 7074c405d13ab5a4fb49eb094419b350,
+        type: 3}
+      propertyPath: ammoLoaded
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695278700286636854, guid: 7074c405d13ab5a4fb49eb094419b350,
+        type: 3}
+      propertyPath: bulletDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695278700286636854, guid: 7074c405d13ab5a4fb49eb094419b350,
+        type: 3}
+      propertyPath: bulletSpread
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7074c405d13ab5a4fb49eb094419b350, type: 3}
 --- !u!4 &9023677616791522378 stripped
@@ -2708,16 +2708,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6088366209574991882}
     m_Modifications:
-    - target: {fileID: 275846989666364826, guid: 4f14d44082264c64cbcc2675a928fbb9,
-        type: 3}
-      propertyPath: m_Name
-      value: Pistol
-      objectReference: {fileID: 0}
-    - target: {fileID: 275846989666364826, guid: 4f14d44082264c64cbcc2675a928fbb9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7713381292332839634, guid: 4f14d44082264c64cbcc2675a928fbb9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2773,11 +2763,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8766136404368944545, guid: 4f14d44082264c64cbcc2675a928fbb9,
+    - target: {fileID: 275846989666364826, guid: 4f14d44082264c64cbcc2675a928fbb9,
         type: 3}
-      propertyPath: pistolUIText
-      value: 
-      objectReference: {fileID: 5636622054539230984}
+      propertyPath: m_Name
+      value: Pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 275846989666364826, guid: 4f14d44082264c64cbcc2675a928fbb9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 991998736519789072, guid: 4f14d44082264c64cbcc2675a928fbb9,
         type: 3}
       propertyPath: m_Mesh
@@ -3168,6 +3163,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8766136404368944545, guid: 4f14d44082264c64cbcc2675a928fbb9,
+        type: 3}
+      propertyPath: pistolUIText
+      value: 
+      objectReference: {fileID: 5636622054539230984}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f14d44082264c64cbcc2675a928fbb9, type: 3}
 --- !u!4 &660827324644802546 stripped
