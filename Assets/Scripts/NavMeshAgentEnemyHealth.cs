@@ -8,10 +8,12 @@ public class NavMeshAgentEnemyHealth : MonoBehaviour, IEnemyHealth
   public float enemyHealth;
   [Tooltip("This is the audio clip that is played randomly while the enemy is alive")]
   public AudioClip soundEffect;
-  [Tooltip("This is a float that defines the minimum amount of time between sound effects")]
+  [Tooltip("This is a float that defines the minimum amount of time between random sound effects")]
   public float minSoundEffectTime = 1f;
-  [Tooltip("This is a float that defines the maximum amount of time between sound effects")]
+  [Tooltip("This is a float that defines the maximum amount of time between random sound effects")]
   public float maxSoundEffectTime = 10f;
+  [Tooltip("This is the audio clip that is played when the enemy is hit")]
+  public AudioClip hitSoundEffect;
   AudioSource audioSource;
 
   private void Start()
@@ -23,6 +25,7 @@ public class NavMeshAgentEnemyHealth : MonoBehaviour, IEnemyHealth
   public void TakeDamage(float damage)
   {
     enemyHealth -= damage;
+    audioSource.PlayOneShot(hitSoundEffect);
     if (enemyHealth <= 0)
     {
       Die();

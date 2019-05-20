@@ -28,7 +28,7 @@ public class NavMeshAgentEnemyCombat : MonoBehaviour
   void Update()
   {
     playerPosition = Player.instance.player.gameObject.transform.position;
-    if (Mathf.Abs(playerPosition.x - this.gameObject.transform.position.x) <= aggroRange || Mathf.Abs(playerPosition.z - this.gameObject.transform.position.z) <= aggroRange)
+    if (Vector3.Distance(playerPosition, this.gameObject.transform.position) <= aggroRange)
     {
       if (attacking)
       {
