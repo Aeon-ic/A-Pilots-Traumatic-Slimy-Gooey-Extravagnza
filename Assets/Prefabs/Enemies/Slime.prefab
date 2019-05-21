@@ -35990,8 +35990,8 @@ MonoBehaviour:
   enemyHealth: 200
   soundEffect: {fileID: 8300000, guid: 4033a274105f78c47b28905d7a3431e3, type: 3}
   minSoundEffectTime: 1
-  maxSoundEffectTime: 10
-  hitSoundEffect: {fileID: 0}
+  maxSoundEffectTime: 5
+  hitSoundEffect: {fileID: 8300000, guid: 2bc5e98f4a782fe48b7938ba9ab8d39d, type: 3}
 --- !u!82 &2871654843526408583
 AudioSource:
   m_ObjectHideFlags: 0
@@ -35999,12 +35999,12 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6652349613990531989}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 0.126
+  m_PlayOnAwake: 0
+  m_Volume: 0.258
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -36013,7 +36013,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1.1173015
-  MaxDistance: 50
+  MaxDistance: 1.1284745
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
