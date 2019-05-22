@@ -62,6 +62,7 @@ public class NavMeshAgentEnemyCombat : MonoBehaviour
   public IEnumerator Attack()
   {
     float nextAttack = Time.time + meleeCooldown;
+	Player.instance.TakeDamage(meleeDamage);
     while (true)
     {
       if (Time.time >= nextAttack)
