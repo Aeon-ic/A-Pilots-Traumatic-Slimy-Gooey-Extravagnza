@@ -64647,7 +64647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoRestored: 10
   ammoType: 9mm
-  pickupSound: {fileID: 0}
+  pickupSound: {fileID: 8300000, guid: 5a3478b45383b444b89c921e4c409267, type: 3}
 --- !u!65 &8342250656745892827
 BoxCollider:
   m_ObjectHideFlags: 0

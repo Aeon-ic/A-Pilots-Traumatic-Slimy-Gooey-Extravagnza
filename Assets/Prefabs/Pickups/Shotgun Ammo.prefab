@@ -115,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoRestored: 4
   ammoType: 12Gauge
-  pickupSound: {fileID: 0}
+  pickupSound: {fileID: 8300000, guid: 8ff8d2fb79a5d864bad16da6af17267e, type: 3}
 --- !u!82 &9020277726972251768
 AudioSource:
   m_ObjectHideFlags: 0

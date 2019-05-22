@@ -631,7 +631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   armorRestored: 10
-  pickupSound: {fileID: 0}
+  pickupSound: {fileID: 8300000, guid: 4fa969c05dcc4a3449b008ed6f576a05, type: 3}
 --- !u!114 &8699126592203122056
 MonoBehaviour:
   m_ObjectHideFlags: 0
