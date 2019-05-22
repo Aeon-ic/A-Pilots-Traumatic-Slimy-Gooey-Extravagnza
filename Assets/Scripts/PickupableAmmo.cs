@@ -19,7 +19,7 @@ public class PickupableAmmo : Pickupable
   {
     if (other.CompareTag("Player"))
     {
-      audioSource.PlayOneShot(pickupSound);
+      Player.instance.player.GetComponent<AudioSource>().PlayOneShot(pickupSound);
       AmmoManager.instance.AddAmmo(ammoType, ammoRestored);
       Destroy(gameObject);
     }

@@ -18,7 +18,7 @@ public class PickupableHealth : Pickupable
   {
     if (other.CompareTag("Player"))
     {
-      audioSource.PlayOneShot(pickupSound);
+      Player.instance.player.GetComponent<AudioSource>().PlayOneShot(pickupSound);
       Player.instance.AddHealth(healthRestored);
       Destroy(gameObject);
     }

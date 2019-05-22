@@ -18,7 +18,7 @@ public class PickupableArmor : Pickupable
   {
     if (other.CompareTag("Player"))
     {
-      audioSource.PlayOneShot(pickupSound);
+      Player.instance.player.GetComponent<AudioSource>().PlayOneShot(pickupSound);
       Player.instance.AddArmor(armorRestored);
       Destroy(gameObject);
     }
